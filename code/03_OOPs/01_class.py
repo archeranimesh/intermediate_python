@@ -19,4 +19,7 @@ class Car:
 if __name__ == "__main__":
     my_suburu = Car()
     print(my_suburu)
-    print(my_suburu)
+    print(Car.runs)  # Class Variable
+    # print(Car.name)  # error, instance variable
+    my_suburu.start("Suburu")
+    print(my_suburu.name)  # Instance variable
