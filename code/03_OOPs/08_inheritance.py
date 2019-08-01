@@ -3,7 +3,7 @@
 # It creates resuable code.
 # Breaks code into hierarchy, more generics to more specific.
 # Objects higher up in the hiearchy is more generics.
-# Multiple inheritance is possible in Python.
+# Multiple inheritance is possible in Python.z
 
 
 class Vehicle:
