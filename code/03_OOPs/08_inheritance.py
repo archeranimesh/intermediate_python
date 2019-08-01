@@ -3,6 +3,7 @@
 # It creates resuable code.
 # Breaks code into hierarchy, more generics to more specific.
 # Objects higher up in the hiearchy is more generics.
+# Multiple inheritance is possible in Python.
 
 
 class Vehicle:
@@ -11,6 +12,7 @@ class Vehicle:
         self.model = model
         self.fuel = fuel
 
+    # This method will be available to any object inheriting from this Class.
     def is_eco_friendly(self):
         if self.fuel == "gas":
             return True
@@ -18,9 +20,12 @@ class Vehicle:
             return False
 
 
+# We inherit by sending the base class name as param during class creation.
 class Car(Vehicle):
     def __init__(self, make, model, fuel="gas", num_wheels=4):
+        # This calls the Vehicle's __init__()
         super().__init__(make, model)
+        # Adds new functionality for this class.
         self.num_wheels = num_wheels
 
 
