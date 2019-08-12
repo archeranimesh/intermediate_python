@@ -9,7 +9,6 @@ except ValueError:
 
 d = {1: 1}
 user_input = 2
-
 try:
     int(user_input)
     print("int(user_input): ", int(user_input))
