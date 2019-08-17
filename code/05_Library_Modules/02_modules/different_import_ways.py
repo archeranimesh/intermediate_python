@@ -8,3 +8,5 @@
 # The below approach is more cleaner.
 from my_math_function import add_number
 print(add_number(1,2))
+
+
