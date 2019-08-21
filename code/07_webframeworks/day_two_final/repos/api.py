@@ -23,7 +23,7 @@ def repos_with_most_stars(languages, min_stars=40000, sort="stars", order="desc"
     response = requests.get(GITHUB_API_URL, params=parameters)
 
     if response.status_code != 200:
-        raise repos.exceptions.GitHubApiException(response.status_code)
+        raise repos.exceptions.GitHubApiError(response.status_code)
 
     response_json = response.json()
     items = response_json["items"]
