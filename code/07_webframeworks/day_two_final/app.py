@@ -13,7 +13,8 @@ $env:FLASK_APP = "app.py"; flask run
 $env:FLASK_APP = "app.py"; $env:FLASK_ENV = "development"; flask run
 """
 from flask import Flask, render_template, request
-import repos
+from repos.exceptions import GitHubApiError
+from repos.api import repos_with_most_stars
 
 app = Flask(__name__)
 
@@ -27,7 +28,7 @@ def index():
     elif request.method == "POST":
         selected_languages = request.form.getlist("languages")
 
-    results = repos.api.repos_with_most_stars(selected_languages)
+    results = repos_with_most_stars(selected_languages)
 
     return render_template(
         'index.html',
@@ -36,6 +37,7 @@ def index():
         results=results
     )
 
-@app.errorhandler(repos.exceptions.GitHubApiError)
+
+@app.errorhandler(GitHubApiError)
 def handle_api_error(error):
     return render_template('error.html', message=error)
